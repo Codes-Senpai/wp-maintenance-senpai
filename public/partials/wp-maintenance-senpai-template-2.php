@@ -17,7 +17,6 @@
 
 <head>
   <title><?php echo get_bloginfo( 'name' ); ?> under Maintenance</title>
-  <meta name="keywords" content="Maintenance Mode" />
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="robots" content="index, follow" />
