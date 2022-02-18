@@ -42,6 +42,9 @@ require plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
  * Rename this for your plugin and update it as you release new versions.
  */
 define( 'WP_MAINTENANCE_SENPAI_VERSION', '1.0.0' );
+define( 'WP_MAINTENANCE_SENPAI_DIR', plugin_dir_path(__FILE__) );
+
+
 
 /**
  * The code that runs during plugin activation.

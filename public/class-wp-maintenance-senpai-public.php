@@ -102,4 +102,11 @@ class Wp_Maintenance_Senpai_Public {
 
 	}
 
+
+	public function render_maintenance_html(){
+		$dir = WP_MAINTENANCE_SENPAI_DIR . '/public/partials/';
+		include $dir . 'wp-maintenance-senpai-template-1.php';
+		die;
+	}
+
 }
