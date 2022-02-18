@@ -172,6 +172,7 @@
                stroke-width: 0;
           }
      </style>
+     <?php //wp_head(); ?>
 </head>
 
 <body>
@@ -202,6 +203,7 @@
           </div>
           <h1>Work In Progress</h1>
           <p>The site is currently down for updates. We should be back soon.</p>
+          <?php //wp_footer(); ?>
 </body>
 
 </html>

@@ -13,7 +13,7 @@
  * @package           Wp_Maintenance_Senpai
  *
  * @wordpress-plugin
- * Plugin Name:       Wordpress maintenance mode
+ * Plugin Name:       Wordpress Maintenance Mode
  * Plugin URI:        https://senpai.codes/wp-maintenance-senpai
  * Description:       Put your website into maintenance mode while you can do administrative tasks.
  * Version:           1.0.0

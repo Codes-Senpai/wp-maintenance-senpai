@@ -72,6 +72,7 @@ p {
 }
 
   </style>
+  <?php //wp_head(); ?>
 </head>
 
 <body onload="return random_bg()">
@@ -116,6 +117,7 @@ p {
       document.body.style.background = color;
     }
   </script>
+  <?php //wp_footer(); ?>
 </body>
 
 </html>
