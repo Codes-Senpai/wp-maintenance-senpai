@@ -27,20 +27,19 @@
         font-family: monospace;
     }
     .wrap {
-        width: 600px;
         margin: 200px auto 0;
         text-align: center;
     }
     .wrap h1 {
         font-size: 50px;
         font-weight: 700;
-        margin: 0 0 90px;
+        margin: 0 0 70px;
     }
     .wrap h2 {
         font-size: 34px;
         font-weight: 400;
         line-height: 1.6;
-        margin: 0 0 80px;
+        margin: 0 0 60px;
     }
   </style>
   <?php //wp_head(); ?>
