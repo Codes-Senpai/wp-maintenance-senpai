@@ -1,0 +1,17 @@
+{
+    "name": "wp-senpai/wp-maintenance-senpai",
+    "description": "Composer Put your website into maintenance mode while you can do administrative tasks.",
+    "authors": [
+        {
+            "name": "Amine Safsafi",
+            "email": "amine.safsafi@senpai.codes"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packages.senpai.codes"
+        }
+    ],
+    "require": {}
+}
