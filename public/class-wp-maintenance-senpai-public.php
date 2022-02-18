@@ -73,7 +73,7 @@ class Wp_Maintenance_Senpai_Public {
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->wp_maintenance_senpai, plugin_dir_url( __FILE__ ) . 'dist/main/wp-maintenance-senpai-loader.css', array(), $this->version, 'all' );
+		//wp_enqueue_style( $this->wp_maintenance_senpai, plugin_dir_url( __FILE__ ) . 'dist/main/wp-maintenance-senpai-loader.css', array(), $this->version, 'all' );
 
 	}
 
@@ -96,8 +96,8 @@ class Wp_Maintenance_Senpai_Public {
 		 * class.
 		 */
 
-		wp_enqueue_script( 'wp_maintenance_senpai_loader', plugin_dir_url( __FILE__ ) . 'dist/main/wp-maintenance-senpai-loader.js', array('wp-i18n'), $this->version, false );
-		wp_enqueue_script( 'wp_maintenance_senpai_setting', plugin_dir_url( __FILE__ ) . 'dist/main/wp-maintenance-senpai-setting.js', array('plugin_name_loader'), $this->version, false );
+		//wp_enqueue_script( 'wp_maintenance_senpai_loader', plugin_dir_url( __FILE__ ) . 'dist/main/wp-maintenance-senpai-loader.js', array('wp-i18n'), $this->version, false );
+		//wp_enqueue_script( 'wp_maintenance_senpai_setting', plugin_dir_url( __FILE__ ) . 'dist/main/wp-maintenance-senpai-setting.js', array('plugin_name_loader'), $this->version, false );
 
 
 	}
@@ -105,7 +105,10 @@ class Wp_Maintenance_Senpai_Public {
 
 	public function render_maintenance_html(){
 		$dir = WP_MAINTENANCE_SENPAI_DIR . '/public/partials/';
+		ob_start();
 		include $dir . 'wp-maintenance-senpai-template-1.php';
+		$content = ob_get_clean();
+		echo $content;
 		die;
 	}
 
