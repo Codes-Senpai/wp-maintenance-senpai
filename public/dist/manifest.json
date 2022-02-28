@@ -1,5 +1,4 @@
 {
-  "main/wp-maintenance-senpai-loader.css": "main/wp-maintenance-senpai-loader.css",
-  "main/wp-maintenance-senpai-loader.js": "main/wp-maintenance-senpai-loader.js",
-  "main/wp-maintenance-senpai-setting.js": "main/wp-maintenance-senpai-setting.js"
+  "main/wp-maintenance-senpai-main.css": "main/wp-maintenance-senpai-main.css",
+  "main/wp-maintenance-senpai-main.js": "main/wp-maintenance-senpai-main.js"
 }

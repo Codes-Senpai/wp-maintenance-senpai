@@ -1,4 +1,30 @@
 /*Default*/
+/* Standard syntax */
+@keyframes backgroundColorPalette {
+    0% {
+      background: #ff1100;
+    }
+    25% {
+      background: #1d2327;
+    }
+    50% {
+      background: #ff1100;
+    }
+    75% {
+      background: #1d2327;
+    }
+    100% {
+      background: #ff1100;
+    }
+  }
+
+
+.wp_maintenance_senpai_menu_item_class {
+    animation-name: backgroundColorPalette;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
 
 /* Small devices (landscape phones, 576px and up)*/
 @media (min-width: 576px) { 

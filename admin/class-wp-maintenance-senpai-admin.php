@@ -59,22 +59,11 @@ class Wp_Maintenance_Senpai_Admin {
 	 *
 	 * @since    1.0.0
 	 */
-	public function enqueue_styles() {
-
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Wp_Maintenance_Senpai_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Wp_Maintenance_Senpai_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
-
-		wp_enqueue_style( $this->wp_maintenance_senpai, plugin_dir_url( __FILE__ ) . 'dist/main/wp-maintenance-senpai-loader.css', array(), $this->version, 'all' );
-
+	public function enqueue_styles($hook) {
+		$allowed_pages = array('tools_page_senpai_maintenance_options', 'admin_page_senpai_maintenance_support');
+		//if(in_array($hook, $allowed_pages)){
+			wp_enqueue_style( 'wp_maintenance_senpai_admin_main_css', plugin_dir_url( __FILE__ ) . 'dist/main/wp-maintenance-senpai-main.css', array(), $this->version, 'all' );
+		//}
 	}
 
 	/**
@@ -82,21 +71,86 @@ class Wp_Maintenance_Senpai_Admin {
 	 *
 	 * @since    1.0.0
 	 */
-	public function enqueue_scripts() {
+	public function enqueue_scripts($hook) {
+		error_log($hook);
+		$allowed_pages = array('tools_page_senpai_maintenance_options', 'admin_page_senpai_maintenance_support');
+		if(in_array($hook, $allowed_pages)){
+			wp_register_script( 'wp_maintenance_senpai_admin_main_js', plugin_dir_url( __FILE__ ) . 'dist/main/wp-maintenance-senpai-main.js', array('wp-i18n', 'jquery'), $this->version, false );
+			wp_localize_script( 'wp_maintenance_senpai_admin_main_js', 'wp_maintenance_senpai_admin_main_params', array(
+				'ajaxurl' => site_url() . '/wp-admin/admin-ajax.php',
+				'nonce' => wp_create_nonce('wp-senpai-maintenance-main-nonce')
+			) );
+			wp_enqueue_script( 'wp_maintenance_senpai_admin_main_js' );
+		
+		}
+	}
 
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Wp_Maintenance_Senpai_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Wp_Maintenance_Senpai_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
-		wp_enqueue_script( 'wp_maintenance_senpai_loader', plugin_dir_url( __FILE__ ) . 'dist/main/wp-maintenance-senpai-loader.js', array('wp-i18n'), $this->version, false );
-		wp_enqueue_script( 'wp_maintenance_senpai_setting', plugin_dir_url( __FILE__ ) . 'dist/main/wp-maintenance-senpai-setting.js', array('plugin_name_loader'), $this->version, false );
+	public function add_wp_senpai_maintenance_menu(){
+		add_submenu_page(
+            'tools.php',
+            'WP Maintenance', // page_title
+            'WP Maintenance', // menu_title
+            'manage_options', // capability
+            'senpai_maintenance_options', // menu_slug
+            [ $this, 'senpai_maintenance_settings_render'], // function
+        );
+
+		add_submenu_page(
+            null,
+            'WP Maintenance', // page_title
+            'WP Maintenance', // menu_title
+            'manage_options', // capability
+            'senpai_maintenance_support', // menu_slug
+            [ $this, 'senpai_maintenance_support_render'], // function
+        );
+
+		
+
+	}
+
+	public function senpai_maintenance_settings_render(){
+		$option_admin_link =  esc_url( admin_url( 'tools.php?page=senpai_maintenance_options') );
+		$support_admin_link =  esc_url( admin_url( 'admin.php?page=senpai_maintenance_support') );
+
+		$dir = WP_MAINTENANCE_SENPAI_DIR . '/admin/partials/';
+		include $dir . 'wp-maintenance-senpai-admin-display-options.php';
+	}
+
+	public function senpai_maintenance_support_render(){
+		$option_admin_link =  esc_url( admin_url( 'tools.php?page=senpai_maintenance_options') );
+		$support_admin_link =  esc_url( admin_url( 'admin.php?page=senpai_maintenance_support') );
+
+		$dir = WP_MAINTENANCE_SENPAI_DIR . '/admin/partials/';
+		include $dir . 'wp-maintenance-senpai-admin-display-support.php';
+	}
+
+	public function senpai_maintenance_settings_handler(){
+		$nonce = $_POST['nonce'];
+		if ( ! wp_verify_nonce( $nonce, 'wp-senpai-maintenance-main-nonce' ) ){
+			$respond = array(
+				'success' => 0,
+				'error'=>array('something went wrong.'),
+				'data'=>array(),
+			);
+			wp_send_json($respond);
+		}
+		$active = $_POST['active'];
+		error_log(print_r($_POST,1));
+		error_log(print_r(get_option('wp_maintenance_senpai_is_activated'),1));
+
+		if($active == 1){
+			update_option('wp_maintenance_senpai_is_activated', 1, true);
+		}else{
+			update_option('wp_maintenance_senpai_is_activated', 0, true);
+		}
+
+		$respond = array(
+			'success' => 1,
+			'error'=>array(),
+			'data'=>array(),
+		);
+		wp_send_json($respond);
+
 	}
 
 }

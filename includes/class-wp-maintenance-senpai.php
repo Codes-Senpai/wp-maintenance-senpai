@@ -157,6 +157,9 @@ class Wp_Maintenance_Senpai {
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 
+		$this->loader->add_action( 'admin_menu', $plugin_admin, 'add_wp_senpai_maintenance_menu' );
+		$this->loader->add_action( 'wp_ajax_senpai_maintenance_settings', $plugin_admin, 'senpai_maintenance_settings_handler' );
+
 	}
 
 	/**
@@ -173,6 +176,7 @@ class Wp_Maintenance_Senpai {
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 		$this->loader->add_action( 'template_redirect', $plugin_public, 'render_maintenance_html' );
+		$this->loader->add_action('admin_bar_menu', $plugin_public, 'add_toolbar_items', 100);
 
 	}
 

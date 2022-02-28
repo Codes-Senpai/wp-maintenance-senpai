@@ -3,5 +3,5 @@ find . -name "node_modules" -type d -prune -exec rm -rf '{}' +
 
 wp i18n make-pot . languages/wp-maintenance-senpai.pot
 
-zip -r wp-maintenance-senpai.zip plugin-name && mv plugin-name.zip /mnt/d/
+zip -r wp-maintenance-senpai.zip wp-maintenance-senpai && mv wp-maintenance-senpai.zip /mnt/d/
 

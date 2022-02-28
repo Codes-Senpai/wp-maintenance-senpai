@@ -20,12 +20,11 @@ module.exports = (env, options) => {
 
     return {
     entry: {
-        "main/wp-maintenance-senpai-loader": path.resolve(__dirname, 'src','main.js'),
-        "main/wp-maintenance-senpai-setting": path.resolve(__dirname, 'src','setting.js')
+        "main/wp-maintenance-senpai-main": path.resolve(__dirname, 'src','main.js'),
     },
     output: {
       path: path.resolve(__dirname, 'dist'),
-      filename: (mode=='production')?'[name].min.js':'[name].js'
+      filename: '[name].js'
     },
     optimization: {
         minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
@@ -63,7 +62,7 @@ module.exports = (env, options) => {
         new CleanWebpackPlugin(),
         new ManifestPlugin(),
         new MiniCssExtractPlugin({
-            filename: (mode=='production')?'[name].min.css':'[name].css',
+            filename: '[name].css',
             ignoreOrder: false
         }),
     ],
