@@ -27,7 +27,7 @@
 <div class="senpai-maintenance-body hide-if-no-js">
 	<h2>WP Maintenance Settings</h2>
 	<p>As a website owner, you may need to do regular maintenance where this plugin come in handy to disable the front-end side of your website and make it accesible only for logged-in admins.</p>
-	<hr>
+	<hr />
 		<table class="form-table tools-privacy-policy-page" role="presentation">
 			<tbody>
 				<tr>

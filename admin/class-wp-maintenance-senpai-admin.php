@@ -120,8 +120,16 @@ class Wp_Maintenance_Senpai_Admin {
 		$option_admin_link =  esc_url( admin_url( 'tools.php?page=senpai_maintenance_options') );
 		$support_admin_link =  esc_url( admin_url( 'admin.php?page=senpai_maintenance_support') );
 
+		$body = $this->encodeURIComponent(get_home_url());
+		$subject = $this->encodeURIComponent('Support Request from ' . get_bloginfo('name'));
+
 		$dir = WP_MAINTENANCE_SENPAI_DIR . '/admin/partials/';
 		include $dir . 'wp-maintenance-senpai-admin-display-support.php';
+	}
+
+	private function encodeURIComponent($str) {
+		$revert = array('%21'=>'!', '%2A'=>'*', '%27'=>"'", '%28'=>'(', '%29'=>')');
+		return strtr(rawurlencode($str), $revert);
 	}
 
 	public function senpai_maintenance_settings_handler(){
