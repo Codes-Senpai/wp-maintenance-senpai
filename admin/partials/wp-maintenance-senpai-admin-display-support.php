@@ -31,7 +31,7 @@
 	<hr />
 	<br />
 	<p align="center">
-		<a href="https://twitter.com/AminoSafsafi" target="_blank" style="display: inline-block;margin: 0 10px;"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="aminosafsafi" height="30" width="40" /></a>
+		<a href="https://twitter.com/senpai_codes" target="_blank" style="display: inline-block;margin: 0 10px;"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="aminosafsafi" height="30" width="40" /></a>
 		<a href="https://www.linkedin.com/company/senpai-codes/" target="_blank" style="display: inline-block;margin: 0 10px;"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="amine-safsafi" height="30" width="40" /></a>
 		<a href="https://www.facebook.com/SenpaiCodes" target="_blank" style="display: inline-block;margin: 0 10px;"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/facebook.svg" height="30" width="40" /></a>
 	</p>
