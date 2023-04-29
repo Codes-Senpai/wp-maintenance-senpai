@@ -9,14 +9,14 @@
  * that starts the plugin.
  *
  * @link              https://amine.senpai.codes/
- * @since             0.0.2
+ * @since             0.0.3
  * @package           Wp_Maintenance_Senpai
  *
  * @wordpress-plugin
  * Plugin Name:       Wordpress Maintenance Mode
  * Plugin URI:        https://senpai.codes/wp-maintenance-senpai
  * Description:       Put your website into maintenance mode while you can do administrative tasks.
- * Version:           0.0.2
+ * Version:           0.0.3
  * Author:            Amine Safsafi
  * Author URI:        https://amine.senpai.codes//
  * License:           GPL-2.0+
