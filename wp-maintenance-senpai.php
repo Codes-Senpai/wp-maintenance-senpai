@@ -34,7 +34,7 @@ if ( ! defined( 'WPINC' ) ) {
 /**
  * Add Composer Support to the plugin
  */
-require plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
+//require plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
 
 /**
  * Currently plugin version.
